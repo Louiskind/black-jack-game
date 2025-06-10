@@ -1,0 +1,28 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: green;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#profile-el, h6 {
+    text-align: left;
+}
+
+#profile-el>span{
+    color: yellow;
+}
+
+h1 {
+    color: orange;
+}
+
+button {
+    background-color: orange;
+    color: green;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 5px;
+}
