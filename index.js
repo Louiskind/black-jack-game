@@ -7,20 +7,20 @@ let hasBlackJack = false;
 let gameStarted = false;
 
 // Player object
-// let player = {
-//     name: "Louis",
-//     image: "",
-//     earnings: 0,
-//     accountBalance: 100
-// }
+let player = {
+    name: "Louis",
+    image: "",
+    earnings: 0,
+    accountBalance: 100
+}
 
 let sumEl = document.querySelector("#sum-el");
 let cardsEl = document.querySelector("#cards-el");
 let displayEl = document.querySelector("#display-el");
-// let playerEl = document.querySelector("#player-el");
-// let balanceEl = document.querySelector("#balance-el");
+let playerEl = document.querySelector("#player-el");
+let balanceEl = document.querySelector("#balance-el");
 
-// balanceEl.textContent = `Account balance: $${player.accountBalance}`;
+balanceEl.textContent = `Account balance: $${player.accountBalance}`;
 
 function resetGame() {
     if (!isAlive) {
@@ -28,10 +28,10 @@ function resetGame() {
         cardsEl.textContent = "Cards: ";
         sumEl.textContent = "Sum: ";
         message = "";
-        // player.earnings = 0;
-        // playerEl.textContent = `${player.name}: $${player.earnings}`
-        // balanceEl.textContent =
-        // `Account balance: $${player.accountBalance}`;
+        player.earnings = 0;
+        playerEl.textContent = `${player.name}: $${player.earnings}`
+        balanceEl.textContent =
+        `Account balance: $${player.accountBalance}`;
 
         firstCard = getRandomCard();
         secondCard = getRandomCard();
@@ -58,11 +58,11 @@ function startGame() {
     if (!gameStarted) {
         renderGame();
     }
-    // gameStarted = true;
-    // if (hasBlackJack) {
-    //     player.earnings += 5;
-    //     isAlive = false;
-    // }
+    gameStarted = true;
+    if (hasBlackJack) {
+        player.earnings += 5;
+        isAlive = false;
+    }
     // display the players earnings
     playerEl.textContent = `${player.name }: $${player.earnings}`
 }
@@ -114,21 +114,21 @@ function newCard() {
         renderGame() 
     }
 
-    // if (hasBlackJack) {
-    //     player.earnings += 5;
+    if (hasBlackJack) {
+        player.earnings += 5;
        
-    //     player.accountBalance += player.earnings;
-    //     player.earnings = 0;
-    //     balanceEl.textContent =
-    //     `Account balance: $${player.accountBalance}`;
-    //     playerEl.textContent = `${player.name}: $${player.earnings}`;
+        player.accountBalance += player.earnings;
+        player.earnings = 0;
+        balanceEl.textContent =
+        `Account balance: $${player.accountBalance}`;
+        playerEl.textContent = `${player.name}: $${player.earnings}`;
         
-    //     resetGame();
-    // }
+        resetGame();
+    }
 
-    // if (!hasBlackJack && !isAlive) {
-    //     player.accountBalance -= 3;
-    //     balanceEl.textContent =
-    //     `Account balance: $${player.accountBalance}}`;
-    // }
+    if (!hasBlackJack && !isAlive) {
+        player.accountBalance -= 3;
+        balanceEl.textContent =
+        `Account balance: $${player.accountBalance}}`;
+    }
 }
